@@ -1092,13 +1092,13 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
       </div>
 
       <div style="display:flex;gap:6px;margin-bottom:22px;background:var(--sand);border-radius:50px;padding:5px;width:fit-content">
-        <button class="port-subtab active" onclick="showPortTab('from',this)" id="ptab-from">Hotels → Port</button>
-        <button class="port-subtab" onclick="showPortTab('airports',this)" id="ptab-airports">Airports → Port</button>
-        <button class="port-subtab" onclick="showPortTab('to',this)" id="ptab-to">Port → Hotels</button>
+        <button class="port-subtab active" onclick="showPortTab('d-from',this)">Hotels → Port</button>
+        <button class="port-subtab" onclick="showPortTab('d-airports',this)">Airports → Port</button>
+        <button class="port-subtab" onclick="showPortTab('d-to',this)">Port → Hotels</button>
       </div>
 
       <!-- TABLE-J: Destinations tab, Port Canaveral, Hotels→Port -->
-      <div id="port-from">
+      <div id="port-d-from">
         <div style="margin-bottom:14px"><div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--forest3);margin-bottom:4px">Orlando Area Hotels → Port Canaveral</div><div style="font-size:13px;color:var(--silver)">Off-Peak (7AM–6PM) · NOT applicable on Federal &amp; State Holidays</div></div>
         <div class="price-table">
           <div class="price-header"><div>Pickup Location</div><div>Up to 4 Guests</div><div>Up to 6 Guests</div></div>
@@ -1112,7 +1112,7 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
       </div>
 
       <!-- TABLE-K: Destinations tab, Port Canaveral, Airports→Port -->
-      <div id="port-airports" style="display:none">
+      <div id="port-d-airports" style="display:none">
         <div style="margin-bottom:14px"><div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--forest3);margin-bottom:4px">Airports &amp; Amtrak → Port Canaveral</div><div style="font-size:13px;color:var(--silver)">ONE-WAY Rates · Direct to all cruise terminals</div></div>
         <div class="price-table">
           <div class="price-header"><div>Pickup Location</div><div>ONE-WAY up to 4 Guests</div><div>ONE-WAY up to 6 Guests</div></div>
@@ -1124,7 +1124,7 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
       </div>
 
       <!-- TABLE-L: Destinations tab, Port Canaveral, Port→Hotels -->
-      <div id="port-to" style="display:none">
+      <div id="port-d-to" style="display:none">
         <div style="margin-bottom:14px"><div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--forest3);margin-bottom:4px">Port Canaveral → Orlando Area Hotels</div><div style="font-size:13px;color:var(--silver)">Off-Peak (7AM–6PM) · NOT applicable on Federal &amp; State Holidays</div></div>
         <div class="price-table">
           <div class="price-header"><div>Destination</div><div>Up to 4 Guests</div><div>Up to 6 Guests</div></div>
@@ -1646,15 +1646,20 @@ function showRates(airport,btn){
 })();
 
 function showPortTab(tab,btn){
-  ['from','airports','to'].forEach(t=>{
+  // Determine prefix: d-from/d-airports/d-to = Destinations, from/airports/to = Rideshare
+  var prefix = tab.startsWith('d-') ? 'd-' : '';
+  var tabs = prefix ? ['d-from','d-airports','d-to'] : ['from','airports','to'];
+  tabs.forEach(t=>{
     const el=document.getElementById('port-'+t);
     if(el) el.style.display='none';
   });
-  document.querySelectorAll('.port-subtab').forEach(t=>t.classList.remove('active'));
+  // Only remove active from sibling subtabs, not all
+  if(btn && btn.parentElement){
+    btn.parentElement.querySelectorAll('.port-subtab').forEach(t=>t.classList.remove('active'));
+  }
   const el=document.getElementById('port-'+tab);
   if(el) el.style.display='block';
   if(btn) btn.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
 }
 function show(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
