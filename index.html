@@ -843,6 +843,8 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
           <div style="font-family:Georgia,serif;font-size:13px;font-style:italic;color:var(--gold);opacity:0.7;margin:-8px 0 12px;text-align:center;letter-spacing:0.3px">Relax and Enjoy the Ride</div>
         <div class="form-note">Fill out the details and we will confirm your booking directly.</div>
         <div class="fg" style="margin-bottom:12px">
+          <!-- Round Trip checkbox — top of form -->
+          <div class="fgrp" style="grid-column:1/-1;margin-bottom:4px;"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-weight:600;color:var(--dark);"><input type="checkbox" id="q-roundtrip" style="accent-color:var(--forest);width:18px;height:18px;cursor:pointer;"> Round Trip</label></div>
           <!-- Row 1 -->
           <div class="fgrp"><label class="flbl">Full Name</label><input class="finput" type="text" placeholder="Your full name"/></div>
           <div class="fgrp"><label class="flbl">Phone Number</label><input class="finput" type="tel" placeholder="(407) 000-0000"/></div>
@@ -858,11 +860,10 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
           <!-- Row 5 -->
           <div class="fgrp"><label class="flbl">Arriving Date</label><input class="finput" type="date"/></div>
           <div class="fgrp"><label class="flbl">Arriving Time</label><input class="finput" type="time"/></div>
-          <!-- Row 6 -->
-          <div class="fgrp" style="display:flex;align-items:center;gap:8px;"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-weight:600;color:var(--dark);"><input type="checkbox" id="q-roundtrip" style="accent-color:var(--forest);width:18px;height:18px;cursor:pointer;"> Round Trip</label></div>
+          <!-- Row 6: Returning Flight Number | Returning Airline (2-column) -->
           <div class="fgrp"><label class="flbl">Returning Flight Number</label><input class="finput" type="text" placeholder="Return flight number"/></div>
           <div class="fgrp"><label class="flbl">Returning Airline</label><select class="fsel"><option value="">Select Airline</option><option>Aer Lingus</option><option>Aeromexico</option><option>Air Canada</option><option>Air France</option><option>Alaska Airlines</option><option>Allegiant Air</option><option>American Airlines</option><option>Avianca</option><option>Avelo Airlines</option><option>Azul Brazilian Airlines</option><option>Bahamasair</option><option>Breeze Airways</option><option>British Airways</option><option>Caribbean Airlines</option><option>Copa Airlines</option><option>Delta Air Lines</option><option>Edelweiss Air</option><option>Emirates</option><option>Eurowings Discover</option><option>Frontier Airlines</option><option>GOL Airlines</option><option>Icelandair</option><option>InterCaribbean Airways</option><option>JetBlue Airways</option><option>LATAM Airlines</option><option>Lufthansa</option><option>Norwegian Air</option><option>Porter Airlines</option><option>Silver Airways</option><option>Southwest Airlines</option><option>Spirit Airlines</option><option>Sun Country Airlines</option><option>Sunwing Airlines</option><option>SWISS</option><option>TAP Air Portugal</option><option>Turkish Airlines</option><option>United Airlines</option><option>Virgin Atlantic</option><option>Volaris</option><option>WestJet</option><option>Other</option></select></div>
-          <!-- Row 7 -->
+          <!-- Row 7: Returning Date | Returning Time (2-column) -->
           <div class="fgrp"><label class="flbl">Returning Date</label><input class="finput" type="date"/></div>
           <div class="fgrp"><label class="flbl">Returning Time</label><input class="finput" type="time"/></div>
           <!-- Special Instructions -->
@@ -1347,6 +1348,8 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
     <div class="pay-g rev">
       <div class="pay-box" style="border-top:3px solid var(--forest)">
         <div class="fg" style="margin-bottom:12px">
+          <!-- Round Trip checkbox — top of form -->
+          <div class="fgrp" style="grid-column:1/-1;margin-bottom:4px;"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;font-weight:700;color:var(--forest);"><input type="checkbox" id="r-roundtrip" onchange="toggleReturnFields()" style="accent-color:var(--forest);width:20px;height:20px;cursor:pointer;"> Round Trip</label></div>
           <!-- Row 1: Full Name | Phone -->
           <div class="fgrp"><label class="flbl">Full Name *</label><input class="finput" id="r-name" type="text" placeholder="Your full name" required/></div>
           <div class="fgrp"><label class="flbl">Phone Number *</label><input class="finput" id="r-phone" type="tel" placeholder="(407) 000-0000" required/></div>
@@ -1362,13 +1365,10 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
           <!-- Row 5: Arriving Date | Arriving Time (MANDATORY) -->
           <div class="fgrp"><label class="flbl">Arriving Date *</label><input class="finput" id="r-arr-date" type="date" required/></div>
           <div class="fgrp"><label class="flbl">Arriving Time *</label><input class="finput" id="r-arr-time" type="time" required/></div>
-          <!-- Row 6: Round Trip checkbox | Returning Flight Number | Returning Airline -->
-          <div style="grid-column:1/-1;display:grid;grid-template-columns:auto 1fr 1fr;gap:12px;align-items:end;">
-            <div class="fgrp" style="margin:0;"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;font-weight:700;color:var(--forest);white-space:nowrap;"><input type="checkbox" id="r-roundtrip" onchange="toggleReturnFields()" style="accent-color:var(--forest);width:20px;height:20px;cursor:pointer;"> Round Trip</label></div>
-            <div class="fgrp" style="margin:0;"><label class="flbl">Returning Flight Number</label><input class="finput" id="r-ret-flight" type="text" placeholder="Return flight number"/></div>
-            <div class="fgrp" style="margin:0;"><label class="flbl">Returning Airline</label><select class="fsel" id="r-ret-airline"><option value="">Select Airline</option><option>Aer Lingus</option><option>Aeromexico</option><option>Air Canada</option><option>Air France</option><option>Alaska Airlines</option><option>Allegiant Air</option><option>American Airlines</option><option>Avianca</option><option>Avelo Airlines</option><option>Azul Brazilian Airlines</option><option>Bahamasair</option><option>Breeze Airways</option><option>British Airways</option><option>Caribbean Airlines</option><option>Copa Airlines</option><option>Delta Air Lines</option><option>Edelweiss Air</option><option>Emirates</option><option>Eurowings Discover</option><option>Frontier Airlines</option><option>GOL Airlines</option><option>Icelandair</option><option>InterCaribbean Airways</option><option>JetBlue Airways</option><option>LATAM Airlines</option><option>Lufthansa</option><option>Norwegian Air</option><option>Porter Airlines</option><option>Silver Airways</option><option>Southwest Airlines</option><option>Spirit Airlines</option><option>Sun Country Airlines</option><option>Sunwing Airlines</option><option>SWISS</option><option>TAP Air Portugal</option><option>Turkish Airlines</option><option>United Airlines</option><option>Virgin Atlantic</option><option>Volaris</option><option>WestJet</option><option>Other</option></select></div>
-          </div>
-          <!-- Row 7: Returning Date | Returning Time -->
+          <!-- Row 6: Returning Flight Number | Returning Airline (2-column grid) -->
+          <div class="fgrp"><label class="flbl">Returning Flight Number</label><input class="finput" id="r-ret-flight" type="text" placeholder="Return flight number"/></div>
+          <div class="fgrp"><label class="flbl">Returning Airline</label><select class="fsel" id="r-ret-airline"><option value="">Select Airline</option><option>Aer Lingus</option><option>Aeromexico</option><option>Air Canada</option><option>Air France</option><option>Alaska Airlines</option><option>Allegiant Air</option><option>American Airlines</option><option>Avianca</option><option>Avelo Airlines</option><option>Azul Brazilian Airlines</option><option>Bahamasair</option><option>Breeze Airways</option><option>British Airways</option><option>Caribbean Airlines</option><option>Copa Airlines</option><option>Delta Air Lines</option><option>Edelweiss Air</option><option>Emirates</option><option>Eurowings Discover</option><option>Frontier Airlines</option><option>GOL Airlines</option><option>Icelandair</option><option>InterCaribbean Airways</option><option>JetBlue Airways</option><option>LATAM Airlines</option><option>Lufthansa</option><option>Norwegian Air</option><option>Porter Airlines</option><option>Silver Airways</option><option>Southwest Airlines</option><option>Spirit Airlines</option><option>Sun Country Airlines</option><option>Sunwing Airlines</option><option>SWISS</option><option>TAP Air Portugal</option><option>Turkish Airlines</option><option>United Airlines</option><option>Virgin Atlantic</option><option>Volaris</option><option>WestJet</option><option>Other</option></select></div>
+          <!-- Row 7: Returning Date | Returning Time (2-column grid) -->
           <div class="fgrp"><label class="flbl">Returning Date</label><input class="finput" id="r-ret-date" type="date"/></div>
           <div class="fgrp"><label class="flbl">Returning Time</label><input class="finput" id="r-ret-time" type="time"/></div>
           
