@@ -866,8 +866,6 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
           <!-- Row 7: Returning Date | Returning Time (2-column) -->
           <div class="fgrp"><label class="flbl">Returning Date</label><input class="finput" type="date"/></div>
           <div class="fgrp"><label class="flbl">Returning Time</label><input class="finput" type="time"/></div>
-          <!-- Special Instructions -->
-          <div class="fgrp span2"><label class="flbl">Special Instructions</label><textarea class="fta" placeholder="Child booster seat, additional stops"></textarea></div>
         </div>
         <button class="fsub" onclick="alert('Quote request submitted. Our team will contact you within 24 hours. Thank you for choosing Cityone Transportation.')">Submit Quote Request</button>
       </div>
@@ -1373,7 +1371,7 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
           <div class="fgrp"><label class="flbl">Returning Time</label><input class="finput" id="r-ret-time" type="time"/></div>
           
         </div>
-        <div class="fgrp" style="margin-bottom:20px"><label class="flbl">Special Instructions</label><textarea class="fta" id="r-notes" placeholder="Child booster seat, additional stops"></textarea></div>
+        <input type="hidden" id="r-notes" value=""/>
         <button class="fsub" onclick="submitReservation()" id="submit-btn">Generate My Reservation Number →</button>
       </div>
 
