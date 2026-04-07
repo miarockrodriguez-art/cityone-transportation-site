@@ -843,15 +843,20 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
           <div style="font-family:Georgia,serif;font-size:13px;font-style:italic;color:var(--gold);opacity:0.7;margin:-8px 0 12px;text-align:center;letter-spacing:0.3px">Relax and Enjoy the Ride</div>
         <div class="form-note">Fill out the details and we will confirm your booking directly.</div>
         <div class="fg" style="margin-bottom:12px">
-          <div class="fgrp"><label class="flbl">Full Name</label><input class="finput" type="text" placeholder="Your full name"/></div>
+          <div class="fgrp"><label class="flbl">First Name</label><input class="finput" type="text" placeholder="First name"/></div>
+          <div class="fgrp"><label class="flbl">Last Name</label><input class="finput" type="text" placeholder="Last name"/></div>
           <div class="fgrp"><label class="flbl">Phone Number</label><input class="finput" type="tel" placeholder="(407) 000-0000"/></div>
           <div class="fgrp"><label class="flbl">Pickup Location</label><input class="finput" type="text" placeholder="Airport, hotel, or address"/></div>
           <div class="fgrp"><label class="flbl">Destination</label><input class="finput" type="text" placeholder="Where are you going?"/></div>
           <div class="fgrp"><label class="flbl">Service Type</label><select class="fsel"><option value="">Select Private Transfer</option><option>Airport Transfer — MCO</option><option>Airport Transfer — Sanford (SFB)</option><option>Cruise Transfer — Port Canaveral</option><option>Orlando Hotels/Resorts Transfer</option><option>Theme Park Transfer</option><option>Private SUV hourly charter service</option><option>Executive / Corporate Service</option><option>Kennedy Space Center</option><option>Seminole Hard Rock Tampa</option><option>Group Charter</option><option>Other</option></select></div>
           <div class="fgrp"><label class="flbl">Pickup Date &amp; Time</label><input class="finput" type="datetime-local"/></div>
+          <div class="fgrp"><label class="flbl">Drop Off Date &amp; Time</label><input class="finput" type="datetime-local"/></div>
           <div class="fgrp"><label class="flbl">Passengers</label><select class="fsel"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select></div>
+          <div class="fgrp"><label class="flbl">Arriving Airline</label><select class="fsel"><option value="">Select Airline (optional)</option><option>Aer Lingus</option><option>Aeromexico</option><option>Air Canada</option><option>Air France</option><option>Alaska Airlines</option><option>Allegiant Air</option><option>American Airlines</option><option>Avianca</option><option>Avelo Airlines</option><option>Azul Brazilian Airlines</option><option>Bahamasair</option><option>Breeze Airways</option><option>British Airways</option><option>Caribbean Airlines</option><option>Copa Airlines</option><option>Delta Air Lines</option><option>Edelweiss Air</option><option>Emirates</option><option>Eurowings Discover</option><option>Frontier Airlines</option><option>GOL Airlines</option><option>Icelandair</option><option>InterCaribbean Airways</option><option>JetBlue Airways</option><option>LATAM Airlines</option><option>Lufthansa</option><option>Norwegian Air</option><option>Porter Airlines</option><option>Silver Airways</option><option>Southwest Airlines</option><option>Spirit Airlines</option><option>Sun Country Airlines</option><option>Sunwing Airlines</option><option>SWISS</option><option>TAP Air Portugal</option><option>Turkish Airlines</option><option>United Airlines</option><option>Virgin Atlantic</option><option>Volaris</option><option>WestJet</option><option>Other</option></select></div>
           <div class="fgrp"><label class="flbl">Arriving Flight Number</label><input class="finput" type="text" placeholder="Optional — we track your flight"/></div>
-          <div class="fgrp"><label class="flbl">Airline</label><select class="fsel"><option value="">Select Airline (optional)</option><option>Aer Lingus</option><option>Aeromexico</option><option>Air Canada</option><option>Air France</option><option>Alaska Airlines</option><option>Allegiant Air</option><option>American Airlines</option><option>Avianca</option><option>Avelo Airlines</option><option>Azul Brazilian Airlines</option><option>Bahamasair</option><option>Breeze Airways</option><option>British Airways</option><option>Caribbean Airlines</option><option>Copa Airlines</option><option>Delta Air Lines</option><option>Edelweiss Air</option><option>Emirates</option><option>Eurowings Discover</option><option>Frontier Airlines</option><option>GOL Airlines</option><option>Icelandair</option><option>InterCaribbean Airways</option><option>JetBlue Airways</option><option>LATAM Airlines</option><option>Lufthansa</option><option>Norwegian Air</option><option>Porter Airlines</option><option>Silver Airways</option><option>Southwest Airlines</option><option>Spirit Airlines</option><option>Sun Country Airlines</option><option>Sunwing Airlines</option><option>SWISS</option><option>TAP Air Portugal</option><option>Turkish Airlines</option><option>United Airlines</option><option>Virgin Atlantic</option><option>Volaris</option><option>WestJet</option><option>Other</option></select></div>
+          <div class="fgrp"><label class="flbl">Returning Airline</label><select class="fsel"><option value="">Select Airline (optional)</option><option>Aer Lingus</option><option>Aeromexico</option><option>Air Canada</option><option>Air France</option><option>Alaska Airlines</option><option>Allegiant Air</option><option>American Airlines</option><option>Avianca</option><option>Avelo Airlines</option><option>Azul Brazilian Airlines</option><option>Bahamasair</option><option>Breeze Airways</option><option>British Airways</option><option>Caribbean Airlines</option><option>Copa Airlines</option><option>Delta Air Lines</option><option>Edelweiss Air</option><option>Emirates</option><option>Eurowings Discover</option><option>Frontier Airlines</option><option>GOL Airlines</option><option>Icelandair</option><option>InterCaribbean Airways</option><option>JetBlue Airways</option><option>LATAM Airlines</option><option>Lufthansa</option><option>Norwegian Air</option><option>Porter Airlines</option><option>Silver Airways</option><option>Southwest Airlines</option><option>Spirit Airlines</option><option>Sun Country Airlines</option><option>Sunwing Airlines</option><option>SWISS</option><option>TAP Air Portugal</option><option>Turkish Airlines</option><option>United Airlines</option><option>Virgin Atlantic</option><option>Volaris</option><option>WestJet</option><option>Other</option></select></div>
+          <div class="fgrp"><label class="flbl">Returning Flight Number</label><input class="finput" type="text" placeholder="Optional — return flight number"/></div>
+          <div class="fgrp" style="display:flex;align-items:center;gap:8px;"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-weight:600;color:var(--dark);"><input type="checkbox" style="accent-color:var(--forest);width:18px;height:18px;cursor:pointer;"> Round Trip</label></div>
           <div class="fgrp span2"><label class="flbl">Special Instructions</label><textarea class="fta" placeholder="Child booster seat, additional stops"></textarea></div>
         </div>
         <button class="fsub" onclick="alert('Reservation request submitted. Our team will contact you within 24 hours. Thank you for choosing Cityone Transportation.')">Submit Reservation Request</button>
@@ -1333,7 +1338,9 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
     <div class="pay-g rev">
       <div class="pay-box" style="border-top:3px solid var(--forest)">
         <div class="fg" style="margin-bottom:12px">
-          <div class="fgrp"><label class="flbl">Full Name</label><input class="finput" id="r-name" type="text" placeholder="Your full name"/></div>
+          <div class="fgrp" style="display:flex;align-items:center;gap:8px;grid-column:1/-1;margin-bottom:4px;"><label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;font-weight:700;color:var(--forest);"><input type="checkbox" id="r-roundtrip" style="accent-color:var(--forest);width:20px;height:20px;cursor:pointer;"> Round Trip</label></div>
+          <div class="fgrp"><label class="flbl">First Name</label><input class="finput" id="r-fname" type="text" placeholder="First name"/></div>
+          <div class="fgrp"><label class="flbl">Last Name</label><input class="finput" id="r-lname" type="text" placeholder="Last name"/></div>
           <div class="fgrp"><label class="flbl">Phone</label><input class="finput" id="r-phone" type="tel" placeholder="(407) 000-0000"/></div>
           <div class="fgrp"><label class="flbl">Email</label><input class="finput" id="r-email" type="email" placeholder="your@email.com"/></div>
           <div class="fgrp"><label class="flbl">Passengers</label><select class="fsel" id="r-pax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select></div>
@@ -1341,10 +1348,11 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
           <div class="fgrp"><label class="flbl">Destination</label><input class="finput" id="r-dest" type="text" placeholder="Where are you going?"/></div>
           <div class="fgrp"><label class="flbl">Service Type</label><select class="fsel" id="r-service"><option value="">Select Private Transfer</option><option>Orlando Hotels/Resorts Transfer</option><option>Private SUV hourly charter service</option><option>Port Canaveral Cruise Transfer</option><option>Executive / Corporate Service</option><option>Kennedy Space Center</option><option>Seminole Hard Rock Tampa</option><option>Group Charter</option><option>Other</option></select></div>
           <div class="fgrp"><label class="flbl">Pickup Date &amp; Time</label><input class="finput" id="r-datetime" type="datetime-local"/></div>
+          <div class="fgrp"><label class="flbl">Drop Off Date &amp; Time</label><input class="finput" id="r-dropoff" type="datetime-local"/></div>
+          <div class="fgrp"><label class="flbl">Arriving Airline</label><select class="fsel" id="r-tip"><option value="">Select Airline (optional)</option><option>Aer Lingus</option><option>Aeromexico</option><option>Air Canada</option><option>Air France</option><option>Alaska Airlines</option><option>Allegiant Air</option><option>American Airlines</option><option>Avianca</option><option>Avelo Airlines</option><option>Azul Brazilian Airlines</option><option>Bahamasair</option><option>Breeze Airways</option><option>British Airways</option><option>Caribbean Airlines</option><option>Copa Airlines</option><option>Delta Air Lines</option><option>Edelweiss Air</option><option>Emirates</option><option>Eurowings Discover</option><option>Frontier Airlines</option><option>GOL Airlines</option><option>Icelandair</option><option>InterCaribbean Airways</option><option>JetBlue Airways</option><option>LATAM Airlines</option><option>Lufthansa</option><option>Norwegian Air</option><option>Porter Airlines</option><option>Silver Airways</option><option>Southwest Airlines</option><option>Spirit Airlines</option><option>Sun Country Airlines</option><option>Sunwing Airlines</option><option>SWISS</option><option>TAP Air Portugal</option><option>Turkish Airlines</option><option>United Airlines</option><option>Virgin Atlantic</option><option>Volaris</option><option>WestJet</option><option>Other</option></select></div>
           <div class="fgrp"><label class="flbl">Arriving Flight Number</label><input class="finput" id="r-flight" type="text" placeholder="Optional — we track your flight"/></div>
-          <div class="fgrp"><label class="flbl">Airline</label>
-            <input class="finput" id="r-tip" type="text" placeholder="Optional — e.g. Delta, American, United, Southwest"/>
-          </div>
+          <div class="fgrp"><label class="flbl">Returning Airline</label><select class="fsel" id="r-ret-airline"><option value="">Select Airline (optional)</option><option>Aer Lingus</option><option>Aeromexico</option><option>Air Canada</option><option>Air France</option><option>Alaska Airlines</option><option>Allegiant Air</option><option>American Airlines</option><option>Avianca</option><option>Avelo Airlines</option><option>Azul Brazilian Airlines</option><option>Bahamasair</option><option>Breeze Airways</option><option>British Airways</option><option>Caribbean Airlines</option><option>Copa Airlines</option><option>Delta Air Lines</option><option>Edelweiss Air</option><option>Emirates</option><option>Eurowings Discover</option><option>Frontier Airlines</option><option>GOL Airlines</option><option>Icelandair</option><option>InterCaribbean Airways</option><option>JetBlue Airways</option><option>LATAM Airlines</option><option>Lufthansa</option><option>Norwegian Air</option><option>Porter Airlines</option><option>Silver Airways</option><option>Southwest Airlines</option><option>Spirit Airlines</option><option>Sun Country Airlines</option><option>Sunwing Airlines</option><option>SWISS</option><option>TAP Air Portugal</option><option>Turkish Airlines</option><option>United Airlines</option><option>Virgin Atlantic</option><option>Volaris</option><option>WestJet</option><option>Other</option></select></div>
+          <div class="fgrp"><label class="flbl">Returning Flight Number</label><input class="finput" id="r-ret-flight" type="text" placeholder="Optional — return flight number"/></div>
           
         </div>
         <div class="fgrp" style="margin-bottom:20px"><label class="flbl">Special Instructions</label><textarea class="fta" id="r-notes" placeholder="Child booster seat, additional stops"></textarea></div>
@@ -1459,15 +1467,17 @@ function updateTip(val){
 }
 
 function submitReservation(){
-  const name    = document.getElementById('r-name')?.value.trim();
+  const fname   = document.getElementById('r-fname')?.value.trim();
+  const lname   = document.getElementById('r-lname')?.value.trim();
+  const name    = (fname && lname) ? fname + ' ' + lname : (fname || lname || '');
   const phone   = document.getElementById('r-phone')?.value.trim();
   const pickup  = document.getElementById('r-pickup')?.value.trim();
   const dest    = document.getElementById('r-dest')?.value.trim();
   const service = document.getElementById('r-service')?.value;
   const dt      = document.getElementById('r-datetime')?.value;
 
-  if(!name || !phone || !pickup || !dest || !service || !dt){
-    alert('Please fill in all required fields: Name, Phone, Pickup Location, Destination, Service Type, and Date/Time.');
+  if(!fname || !lname || !phone || !pickup || !dest || !service || !dt){
+    alert('Please fill in all required fields: First Name, Last Name, Phone, Pickup Location, Destination, Service Type, and Pickup Date/Time.');
     return;
   }
 
@@ -1477,6 +1487,11 @@ function submitReservation(){
   const flight = document.getElementById('r-flight')?.value || '—';
   const notes  = document.getElementById('r-notes')?.value || '—';
   const tip = document.getElementById('r-tip')?.value || '—';
+  const roundTrip = document.getElementById('r-roundtrip')?.checked ? 'Yes' : 'No';
+  const dropoff = document.getElementById('r-dropoff')?.value || '—';
+  const retAirline = document.getElementById('r-ret-airline')?.value || '—';
+  const retFlight = document.getElementById('r-ret-flight')?.value || '—';
+  const dropoffStr = dropoff !== '—' ? new Date(dropoff).toLocaleDateString('en-US',{weekday:'short',year:'numeric',month:'short',day:'numeric'}) + ' at ' + new Date(dropoff).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}) : '—';
 
   // Format date/time nicely
   const dtObj = new Date(dt);
@@ -1492,9 +1507,13 @@ function submitReservation(){
     '<strong>Service:</strong> ' + service + '<br/>' +
     '<strong>Pickup:</strong> ' + pickup + '<br/>' +
     '<strong>Destination:</strong> ' + dest + '<br/>' +
-    '<strong>Date/Time:</strong> ' + dtStr + '<br/>' +
-    '<strong>Flight #:</strong> ' + flight + '<br/>' +
-    '<strong>Airline:</strong> ' + tip + '<br/>' +
+    '<strong>Pickup Date/Time:</strong> ' + dtStr + '<br/>' +
+    '<strong>Drop Off Date/Time:</strong> ' + dropoffStr + '<br/>' +
+    '<strong>Round Trip:</strong> ' + roundTrip + '<br/>' +
+    '<strong>Arriving Airline:</strong> ' + tip + '<br/>' +
+    '<strong>Arriving Flight #:</strong> ' + flight + '<br/>' +
+    '<strong>Returning Airline:</strong> ' + retAirline + '<br/>' +
+    '<strong>Returning Flight #:</strong> ' + retFlight + '<br/>' +
     '<strong>Notes:</strong> ' + notes;
 
   // Reveal payment section and scroll to it
@@ -1516,8 +1535,12 @@ function submitReservation(){
     pickup:      pickup,
     destination: dest,
     datetime:    dtStr,
+    dropoff:     dropoffStr,
+    round_trip:  roundTrip,
     flight:      flight,
     airline:     tip,
+    ret_airline: retAirline,
+    ret_flight:  retFlight,
     notes:       notes,
   }).then(()=>{
     console.log('Reservation email sent.');
