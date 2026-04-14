@@ -587,9 +587,8 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
 /* Mobile */
 @media(max-width:767px){
   .hamburger{display:block}
-  #mainNav{flex-wrap:wrap;position:relative}
   .nav-soc{display:none}
-  #mainNav.open .mobile-menu{display:flex;flex-direction:column;width:100%;background:#fff;border-top:1px solid rgba(0,0,0,0.08);padding:12px 0;box-shadow:0 8px 24px rgba(0,0,0,0.08)}
+  #mainNav.open .mobile-menu{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;border-top:1px solid rgba(0,0,0,0.08);padding:12px 0;box-shadow:0 8px 24px rgba(0,0,0,0.08)}
   .mobile-menu button,.mobile-menu a{
     width:100%;text-align:left;padding:14px 22px;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
     color:var(--dark);background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;text-decoration:none;display:block;
