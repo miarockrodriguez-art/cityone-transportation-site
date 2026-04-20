@@ -133,14 +133,61 @@ select.admin-input{-webkit-appearance:none;appearance:none}
     </div>
   </div>
 
+  <!-- PRICING EDITOR -->
+  <div class="admin-section">
+    <h2>Pricing Editor</h2>
+    <p class="desc">Update rates shown on the live site. Changes take effect immediately. All prices are "Starting At" rates for off-peak hours (7AM-6PM).</p>
+
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C49A3C;margin-bottom:12px;border-bottom:1px solid rgba(196,154,60,0.15);padding-bottom:8px">MCO Airport Rates</div>
+    <div style="display:grid;grid-template-columns:1fr 80px 80px;gap:6px;align-items:center;margin-bottom:16px;font-size:11px">
+      <div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px">DESTINATION</div><div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px;text-align:center">≤4</div><div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px;text-align:center">≤6</div>
+      <div style="color:rgba(254,250,224,0.7)">Disney Area Hotels</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-mco-disney-4" value="125"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-mco-disney-6" value="150">
+      <div style="color:rgba(254,250,224,0.7)">Disney Springs / LBV</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-mco-springs-4" value="100"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-mco-springs-6" value="125">
+      <div style="color:rgba(254,250,224,0.7)">SeaWorld / Conv. Center</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-mco-seaworld-4" value="75"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-mco-seaworld-6" value="100">
+      <div style="color:rgba(254,250,224,0.7)">Universal Orlando</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-mco-universal-4" value="100"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-mco-universal-6" value="125">
+      <div style="color:rgba(254,250,224,0.7)">Kissimmee Area</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-mco-kissimmee-4" value="150"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-mco-kissimmee-6" value="175">
+    </div>
+
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C49A3C;margin-bottom:12px;border-bottom:1px solid rgba(196,154,60,0.15);padding-bottom:8px">SFB Airport Rates (Round Trip)</div>
+    <div style="display:grid;grid-template-columns:1fr 80px 80px;gap:6px;align-items:center;margin-bottom:16px;font-size:11px">
+      <div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px">DESTINATION</div><div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px;text-align:center">≤4</div><div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px;text-align:center">≤6</div>
+      <div style="color:rgba(254,250,224,0.7)">Disney Area Hotels</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-sfb-disney-4" value="199"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-sfb-disney-6" value="199">
+      <div style="color:rgba(254,250,224,0.7)">Disney Springs / LBV</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-sfb-springs-4" value="150"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-sfb-springs-6" value="175">
+      <div style="color:rgba(254,250,224,0.7)">SeaWorld / Conv. Center</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-sfb-seaworld-4" value="150"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-sfb-seaworld-6" value="175">
+      <div style="color:rgba(254,250,224,0.7)">Universal Orlando</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-sfb-universal-4" value="150"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-sfb-universal-6" value="175">
+      <div style="color:rgba(254,250,224,0.7)">Kissimmee Area</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-sfb-kissimmee-4" value="225"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-sfb-kissimmee-6" value="225">
+    </div>
+
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C49A3C;margin-bottom:12px;border-bottom:1px solid rgba(196,154,60,0.15);padding-bottom:8px">Amtrak Station Rates</div>
+    <div style="display:grid;grid-template-columns:1fr 80px 80px;gap:6px;align-items:center;margin-bottom:16px;font-size:11px">
+      <div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px">DESTINATION</div><div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px;text-align:center">≤4</div><div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px;text-align:center">≤6</div>
+      <div style="color:rgba(254,250,224,0.7)">Disney Area Hotels</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-amtrak-disney-4" value="95"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-amtrak-disney-6" value="110">
+      <div style="color:rgba(254,250,224,0.7)">Disney Springs / LBV</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-amtrak-springs-4" value="75"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-amtrak-springs-6" value="85">
+      <div style="color:rgba(254,250,224,0.7)">SeaWorld / Conv. Center</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-amtrak-seaworld-4" value="75"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-amtrak-seaworld-6" value="85">
+      <div style="color:rgba(254,250,224,0.7)">Universal Orlando</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-amtrak-universal-4" value="65"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-amtrak-universal-6" value="75">
+      <div style="color:rgba(254,250,224,0.7)">Kissimmee Area</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-amtrak-kissimmee-4" value="110"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-amtrak-kissimmee-6" value="135">
+    </div>
+
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C49A3C;margin-bottom:12px;border-bottom:1px solid rgba(196,154,60,0.15);padding-bottom:8px">Port Canaveral Cruise Rates</div>
+    <div style="display:grid;grid-template-columns:1fr 80px 80px;gap:6px;align-items:center;margin-bottom:16px;font-size:11px">
+      <div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px">ROUTE</div><div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px;text-align:center">≤4</div><div style="color:rgba(254,250,224,0.4);font-weight:700;letter-spacing:1px;text-align:center">≤6</div>
+      <div style="color:rgba(254,250,224,0.7)">MCO to Port Canaveral</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-port-mco-4" value="165"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-port-mco-6" value="185">
+      <div style="color:rgba(254,250,224,0.7)">SFB to Port Canaveral</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-port-sfb-4" value="235"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-port-sfb-6" value="250">
+      <div style="color:rgba(254,250,224,0.7)">Amtrak to Port Canaveral</div><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-port-amtrak-4" value="195"><input class="admin-input" style="margin:0;padding:8px;text-align:center" id="p-port-amtrak-6" value="220">
+    </div>
+
+    <button class="admin-btn" onclick="savePrices()">Save All Prices</button>
+    <div class="status-msg" id="priceStatus">All prices saved and live on the website.</div>
+  </div>
+
   <div style="text-align:center;margin-top:24px;padding-top:20px;border-top:1px solid rgba(196,154,60,0.1)">
-    <p style="font-size:10px;color:rgba(254,250,224,0.2);letter-spacing:1px">Cityone Transportation Admin &middot; Powered by Phoenix Blueprint</p>
-    <p style="font-size:10px;color:rgba(254,250,224,0.15);margin-top:4px">Rate changes are managed by your web team. Contact support@phoenixblueprint.com.</p>
+    <p style="font-size:10px;color:rgba(254,250,224,0.35);letter-spacing:0.5px;line-height:1.8;max-width:480px;margin:0 auto">Minor updates can be managed through this panel. For structural changes or developer work required after deployment, additional service fees apply based on scope. Submit requests to <a href="mailto:support@phoenixblueprint.com" style="color:#C49A3C;text-decoration:none">support@phoenixblueprint.com</a></p>
+    <p style="font-size:10px;color:rgba(254,250,224,0.15);margin-top:10px;letter-spacing:1px">Cityone Transportation Admin &middot; Powered by Phoenix Blueprint</p>
   </div>
 </div>
 
 <script>
-var ADMIN_PASS = '#November302013';
+var ADMIN_PASS = '56400Tnt$';
 var STORAGE_PREFIX = 'cityone_';
 
 function attemptLogin(){
@@ -159,6 +206,7 @@ function showPanel(){
   document.getElementById('adminPanel').style.display = 'block';
   loadTicker();
   loadBanner();
+  loadPrices();
 }
 
 function logout(){
@@ -248,6 +296,26 @@ function flash(id){
   var el = document.getElementById(id);
   el.style.display = 'block';
   setTimeout(function(){el.style.display='none';}, 2500);
+}
+
+// PRICING
+function savePrices(){
+  var prices = {};
+  document.querySelectorAll('[id^="p-"]').forEach(function(el){
+    prices[el.id] = el.value;
+  });
+  localStorage.setItem(STORAGE_PREFIX + 'prices', JSON.stringify(prices));
+  flash('priceStatus');
+}
+function loadPrices(){
+  var saved = localStorage.getItem(STORAGE_PREFIX + 'prices');
+  if(saved){
+    var prices = JSON.parse(saved);
+    Object.keys(prices).forEach(function(key){
+      var el = document.getElementById(key);
+      if(el) el.value = prices[key];
+    });
+  }
 }
 
 // Auto-login if session active
