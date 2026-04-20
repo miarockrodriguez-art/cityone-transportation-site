@@ -1828,5 +1828,42 @@ document.addEventListener('DOMContentLoaded',runRevs);
 runRevs();
 </script>
 <div style="text-align:center;padding:12px 0 16px;font-size:10px;font-weight:400;letter-spacing:1px;color:rgba(139,109,34,0.35)">Powered by <span style="font-weight:600;letter-spacing:1.5px">Phoenix Blueprint</span></div>
+<!-- Admin-controlled banners -->
+<script>
+(function(){
+  // Emergency banner
+  var emergency = localStorage.getItem('cityone_emergency');
+  if(emergency){
+    try {
+      var ed = JSON.parse(emergency);
+      if(ed.enabled && ed.message){
+        var banner = document.getElementById('site-banner');
+        if(banner){
+          banner.style.display = 'flex';
+          banner.style.background = ed.color || '#cc3333';
+          document.getElementById('site-banner-msg').textContent = ed.message;
+          document.body.style.paddingTop = '44px';
+        }
+      }
+    } catch(e){}
+  }
+  // Announcement ticker
+  var announcement = localStorage.getItem('cityone_announcement');
+  if(announcement){
+    try {
+      var ad = JSON.parse(announcement);
+      if(ad.enabled && ad.message){
+        var ticker = document.createElement('div');
+        ticker.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:998;background:#1B4332;border-top:1px solid rgba(196,154,60,0.3);padding:8px 0;overflow:hidden;white-space:nowrap;';
+        ticker.innerHTML = '<div style="display:inline-block;animation:tickerScroll 20s linear infinite;font-size:12px;font-weight:600;letter-spacing:1px;color:#C49A3C;">' + ad.message + ' &nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp; ' + ad.message + ' &nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp; ' + ad.message + '</div>';
+        var style = document.createElement('style');
+        style.textContent = '@keyframes tickerScroll{0%{transform:translateX(100vw)}100%{transform:translateX(-100%)}}';
+        document.head.appendChild(style);
+        document.body.appendChild(ticker);
+      }
+    } catch(e){}
+  }
+})();
+</script>
 </body>
 </html>

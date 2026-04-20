@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin Panel | Cityone Transportation</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0F1F15;color:#FEFAE0;min-height:100vh}
+
+/* LOGIN */
+.login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.login-box{background:rgba(27,67,50,0.3);border:1px solid rgba(196,154,60,0.25);padding:40px 36px;max-width:400px;width:100%;text-align:center}
+.login-box h1{font-family:'DM Serif Display',serif;font-size:28px;color:#C49A3C;margin-bottom:6px}
+.login-box p{font-size:13px;color:rgba(254,250,224,0.5);margin-bottom:28px}
+.login-box input{width:100%;padding:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(196,154,60,0.2);color:#FEFAE0;font-family:'Inter',sans-serif;font-size:14px;text-align:center;outline:none;margin-bottom:14px;transition:border-color 0.2s}
+.login-box input:focus{border-color:#C49A3C}
+.login-box button{width:100%;padding:14px;background:#C49A3C;color:#0F1F15;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background 0.2s}
+.login-box button:hover{background:#E3B84E}
+.login-error{color:#ff6b6b;font-size:12px;margin-top:10px;display:none}
+
+/* ADMIN PANEL */
+.admin-panel{display:none;max-width:640px;margin:0 auto;padding:40px 20px}
+.admin-header{text-align:center;margin-bottom:36px;padding-bottom:20px;border-bottom:1px solid rgba(196,154,60,0.15)}
+.admin-header h1{font-family:'DM Serif Display',serif;font-size:26px;color:#C49A3C;margin-bottom:4px}
+.admin-header p{font-size:12px;color:rgba(254,250,224,0.4);letter-spacing:1px}
+.admin-logout{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C49A3C;border:1px solid rgba(196,154,60,0.3);padding:6px 16px;cursor:pointer;margin-top:12px;background:none;transition:background 0.2s}
+.admin-logout:hover{background:rgba(196,154,60,0.1)}
+
+/* SECTIONS */
+.admin-section{background:rgba(27,67,50,0.2);border:1px solid rgba(196,154,60,0.15);border-left:3px solid #C49A3C;padding:24px;margin-bottom:20px}
+.admin-section h2{font-family:'DM Serif Display',serif;font-size:18px;color:#C49A3C;margin-bottom:6px}
+.admin-section .desc{font-size:12px;color:rgba(254,250,224,0.45);margin-bottom:18px;line-height:1.6}
+
+/* TOGGLE */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.toggle-label{font-size:13px;font-weight:600;color:rgba(254,250,224,0.8)}
+.toggle-switch{position:relative;width:48px;height:26px;cursor:pointer}
+.toggle-switch input{display:none}
+.toggle-track{position:absolute;inset:0;background:rgba(255,255,255,0.1);border-radius:13px;transition:background 0.3s}
+.toggle-switch input:checked+.toggle-track{background:rgba(196,154,60,0.35)}
+.toggle-track::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;background:rgba(254,250,224,0.4);border-radius:50%;transition:transform 0.3s,background 0.3s}
+.toggle-switch input:checked+.toggle-track::after{transform:translateX(22px);background:#C49A3C}
+
+/* INPUTS */
+.admin-input{width:100%;padding:12px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(196,154,60,0.15);color:#FEFAE0;font-family:'Inter',sans-serif;font-size:13px;outline:none;margin-bottom:12px;transition:border-color 0.2s}
+.admin-input:focus{border-color:#C49A3C}
+.admin-input::placeholder{color:rgba(254,250,224,0.3)}
+select.admin-input{-webkit-appearance:none;appearance:none}
+
+.admin-btn{padding:10px 20px;background:#C49A3C;color:#0F1F15;border:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background 0.2s}
+.admin-btn:hover{background:#E3B84E}
+.admin-btn.danger{background:#cc3333;color:#fff}
+.admin-btn.danger:hover{background:#ff4444}
+
+.status-msg{font-size:11px;color:#40916C;margin-top:8px;display:none}
+
+/* PREVIEW */
+.preview-bar{margin-top:14px;padding:10px 14px;font-size:12px;text-align:center;border:1px dashed rgba(196,154,60,0.2)}
+.preview-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(196,154,60,0.5);margin-bottom:4px}
+
+@media(max-width:500px){.admin-section{padding:18px 16px}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <h1>Cityone Admin</h1>
+    <p>Enter your admin password to continue</p>
+    <input type="password" id="loginPass" placeholder="Password" onkeydown="if(event.key==='Enter')attemptLogin()">
+    <button onclick="attemptLogin()">Sign In</button>
+    <div class="login-error" id="loginError">Incorrect password. Try again.</div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-header">
+    <h1>Cityone Transportation</h1>
+    <p>Admin Panel — Announcement & Emergency Controls</p>
+    <button class="admin-logout" onclick="logout()">Log Out</button>
+  </div>
+
+  <!-- ANNOUNCEMENT TICKER -->
+  <div class="admin-section">
+    <h2>Announcement Ticker</h2>
+    <p class="desc">This message appears as a scrolling banner on the main site. Toggle it on or off and update the text anytime.</p>
+    <div class="toggle-row">
+      <span class="toggle-label">Ticker Active</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="tickerToggle" onchange="saveTicker()">
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+    <input type="text" class="admin-input" id="tickerText" placeholder="Enter announcement message..." maxlength="200">
+    <button class="admin-btn" onclick="saveTicker()">Save Announcement</button>
+    <div class="status-msg" id="tickerStatus">Announcement saved.</div>
+    <div class="preview-bar" id="tickerPreview">
+      <div class="preview-label">Preview</div>
+      <div id="tickerPreviewText" style="color:rgba(254,250,224,0.7);font-style:italic">No announcement set</div>
+    </div>
+  </div>
+
+  <!-- EMERGENCY BANNER -->
+  <div class="admin-section">
+    <h2>Emergency Banner</h2>
+    <p class="desc">Adds a colored bar at the very top of the site for urgent messages like weather alerts, holiday closures, or service disruptions. Remove it when no longer needed.</p>
+    <div class="toggle-row">
+      <span class="toggle-label">Banner Active</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="bannerToggle" onchange="saveBanner()">
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+    <input type="text" class="admin-input" id="bannerText" placeholder="e.g. Hurricane Warning — All rides suspended until further notice" maxlength="200">
+    <select class="admin-input" id="bannerColor" onchange="saveBanner()">
+      <option value="#cc3333">Red — Emergency / Weather</option>
+      <option value="#C49A3C">Gold — Holiday / Info</option>
+      <option value="#2D6A4F">Green — Positive / Reopened</option>
+      <option value="#1a5276">Blue — Notice / Update</option>
+    </select>
+    <div style="display:flex;gap:10px">
+      <button class="admin-btn" onclick="saveBanner()">Save Banner</button>
+      <button class="admin-btn danger" onclick="removeBanner()">Remove Banner</button>
+    </div>
+    <div class="status-msg" id="bannerStatus">Banner saved.</div>
+    <div class="preview-bar" id="bannerPreview">
+      <div class="preview-label">Preview</div>
+      <div id="bannerPreviewText" style="padding:8px;text-align:center;font-size:12px;font-weight:700;letter-spacing:1px">No emergency banner set</div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:24px;padding-top:20px;border-top:1px solid rgba(196,154,60,0.1)">
+    <p style="font-size:10px;color:rgba(254,250,224,0.2);letter-spacing:1px">Cityone Transportation Admin &middot; Powered by Phoenix Blueprint</p>
+    <p style="font-size:10px;color:rgba(254,250,224,0.15);margin-top:4px">Rate changes are managed by your web team. Contact support@phoenixblueprint.com.</p>
+  </div>
+</div>
+
+<script>
+var ADMIN_PASS = '#November302013';
+var STORAGE_PREFIX = 'cityone_';
+
+function attemptLogin(){
+  var pass = document.getElementById('loginPass').value;
+  if(pass === ADMIN_PASS){
+    sessionStorage.setItem(STORAGE_PREFIX + 'auth', '1');
+    showPanel();
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+    document.getElementById('loginPass').value = '';
+  }
+}
+
+function showPanel(){
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('adminPanel').style.display = 'block';
+  loadTicker();
+  loadBanner();
+}
+
+function logout(){
+  sessionStorage.removeItem(STORAGE_PREFIX + 'auth');
+  document.getElementById('adminPanel').style.display = 'none';
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('loginPass').value = '';
+  document.getElementById('loginError').style.display = 'none';
+}
+
+// TICKER
+function saveTicker(){
+  var data = {
+    enabled: document.getElementById('tickerToggle').checked,
+    message: document.getElementById('tickerText').value.trim()
+  };
+  localStorage.setItem(STORAGE_PREFIX + 'announcement', JSON.stringify(data));
+  updateTickerPreview(data);
+  flash('tickerStatus');
+}
+function loadTicker(){
+  var saved = localStorage.getItem(STORAGE_PREFIX + 'announcement');
+  if(saved){
+    var data = JSON.parse(saved);
+    document.getElementById('tickerToggle').checked = data.enabled;
+    document.getElementById('tickerText').value = data.message || '';
+    updateTickerPreview(data);
+  }
+}
+function updateTickerPreview(data){
+  var el = document.getElementById('tickerPreviewText');
+  if(data.enabled && data.message){
+    el.textContent = data.message;
+    el.style.color = '#C49A3C';
+    el.style.fontStyle = 'normal';
+  } else {
+    el.textContent = data.message || 'No announcement set';
+    el.style.color = 'rgba(254,250,224,0.4)';
+    el.style.fontStyle = 'italic';
+  }
+}
+
+// BANNER
+function saveBanner(){
+  var data = {
+    enabled: document.getElementById('bannerToggle').checked,
+    message: document.getElementById('bannerText').value.trim(),
+    color: document.getElementById('bannerColor').value
+  };
+  localStorage.setItem(STORAGE_PREFIX + 'emergency', JSON.stringify(data));
+  updateBannerPreview(data);
+  flash('bannerStatus');
+}
+function removeBanner(){
+  document.getElementById('bannerToggle').checked = false;
+  document.getElementById('bannerText').value = '';
+  var data = {enabled:false, message:'', color:'#cc3333'};
+  localStorage.setItem(STORAGE_PREFIX + 'emergency', JSON.stringify(data));
+  updateBannerPreview(data);
+  document.getElementById('bannerStatus').textContent = 'Banner removed.';
+  flash('bannerStatus');
+}
+function loadBanner(){
+  var saved = localStorage.getItem(STORAGE_PREFIX + 'emergency');
+  if(saved){
+    var data = JSON.parse(saved);
+    document.getElementById('bannerToggle').checked = data.enabled;
+    document.getElementById('bannerText').value = data.message || '';
+    document.getElementById('bannerColor').value = data.color || '#cc3333';
+    updateBannerPreview(data);
+  }
+}
+function updateBannerPreview(data){
+  var el = document.getElementById('bannerPreviewText');
+  if(data.enabled && data.message){
+    el.textContent = data.message;
+    el.style.background = data.color;
+    el.style.color = '#fff';
+  } else {
+    el.textContent = 'No emergency banner set';
+    el.style.background = 'transparent';
+    el.style.color = 'rgba(254,250,224,0.4)';
+  }
+}
+
+function flash(id){
+  var el = document.getElementById(id);
+  el.style.display = 'block';
+  setTimeout(function(){el.style.display='none';}, 2500);
+}
+
+// Auto-login if session active
+if(sessionStorage.getItem(STORAGE_PREFIX + 'auth') === '1') showPanel();
+</script>
+</body>
+</html>
