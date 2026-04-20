@@ -614,7 +614,7 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
 }
 </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
-  <script>if(typeof emailjs !== "undefined") emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");</script>
+  <script>if(typeof emailjs !== "undefined") emailjs.init("URLtKQDq3xZsiz7HL");</script>
 </head>
 <body>
 
@@ -876,17 +876,17 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
         <div class="form-note">Fill out the details and we will confirm your booking directly.</div>
         <div class="fg" style="margin-bottom:12px">
           <!-- Row 1 -->
-          <div class="fgrp"><label class="flbl">Full Name</label><input class="finput" type="text" placeholder="Your full name"/></div>
-          <div class="fgrp"><label class="flbl">Phone Number</label><input class="finput" type="tel" placeholder="(407) 000-0000"/></div>
+          <div class="fgrp"><label class="flbl">Full Name</label><input class="finput" id="q-name" type="text" placeholder="Your full name"/></div>
+          <div class="fgrp"><label class="flbl">Phone Number</label><input class="finput" id="q-phone" type="tel" placeholder="(407) 000-0000"/></div>
           <!-- Row 2 -->
-          <div class="fgrp"><label class="flbl">Email Address</label><input class="finput" type="email" placeholder="your@email.com"/></div>
-          <div class="fgrp"><label class="flbl">Select Transfer</label><select class="fsel"><option value="">Select Private Transfer</option><option>Airport Transfer — MCO</option><option>Airport Transfer — Sanford (SFB)</option><option>Cruise Transfer — Port Canaveral</option><option>Orlando Hotels/Resorts Transfer</option><option>Theme Park Transfer</option><option>Private SUV hourly charter service</option><option>Executive / Corporate Service</option><option>Kennedy Space Center</option><option>Seminole Hard Rock Tampa</option><option>Group Charter</option><option>Other</option></select></div>
+          <div class="fgrp"><label class="flbl">Email Address</label><input class="finput" id="q-email" type="email" placeholder="your@email.com"/></div>
+          <div class="fgrp"><label class="flbl">Select Transfer</label><select class="fsel" id="q-transfer"><option value="">Select Private Transfer</option><option>Airport Transfer — MCO</option><option>Airport Transfer — Sanford (SFB)</option><option>Cruise Transfer — Port Canaveral</option><option>Orlando Hotels/Resorts Transfer</option><option>Theme Park Transfer</option><option>Private SUV hourly charter service</option><option>Executive / Corporate Service</option><option>Kennedy Space Center</option><option>Seminole Hard Rock Tampa</option><option>Group Charter</option><option>Other</option></select></div>
           <!-- Row 3 -->
-          <div class="fgrp"><label class="flbl">Pick Up Location - Airport/Hotel</label><input class="finput" type="text" placeholder="Airport, hotel, or address"/></div>
-          <div class="fgrp"><label class="flbl">Drop Off Hotel/Airport</label><input class="finput" type="text" placeholder="Destination hotel, airport, or address"/></div>
+          <div class="fgrp"><label class="flbl">Pick Up Location - Airport/Hotel</label><input class="finput" id="q-pickup" type="text" placeholder="Airport, hotel, or address"/></div>
+          <div class="fgrp"><label class="flbl">Drop Off Hotel/Airport</label><input class="finput" id="q-dropoff" type="text" placeholder="Destination hotel, airport, or address"/></div>
           <!-- Row 4 -->
-          <div class="fgrp"><label class="flbl">Number of Guests</label><select class="fsel"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select></div>
-          <div class="fgrp"><label class="flbl">Arriving Date &amp; Time - Pick Up</label><input class="finput" type="datetime-local"/></div>
+          <div class="fgrp"><label class="flbl">Number of Guests</label><select class="fsel" id="q-guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select></div>
+          <div class="fgrp"><label class="flbl">Arriving Date &amp; Time - Pick Up</label><input class="finput" id="q-datetime" type="datetime-local"/></div>
           <!-- Row 5 -->
           <div class="fgrp"><label class="flbl">Arriving Airline</label><select class="fsel"><option value="">Select Airline</option><option>Aer Lingus</option><option>Aeromexico</option><option>Air Canada</option><option>Air France</option><option>Alaska Airlines</option><option>Allegiant Air</option><option>American Airlines</option><option>Avianca</option><option>Avelo Airlines</option><option>Azul Brazilian Airlines</option><option>Bahamasair</option><option>Breeze Airways</option><option>British Airways</option><option>Caribbean Airlines</option><option>Copa Airlines</option><option>Delta Air Lines</option><option>Edelweiss Air</option><option>Emirates</option><option>Eurowings Discover</option><option>Frontier Airlines</option><option>GOL Airlines</option><option>Icelandair</option><option>InterCaribbean Airways</option><option>JetBlue Airways</option><option>LATAM Airlines</option><option>Lufthansa</option><option>Norwegian Air</option><option>Porter Airlines</option><option>Silver Airways</option><option>Southwest Airlines</option><option>Spirit Airlines</option><option>Sun Country Airlines</option><option>Sunwing Airlines</option><option>SWISS</option><option>TAP Air Portugal</option><option>Turkish Airlines</option><option>United Airlines</option><option>Virgin Atlantic</option><option>Volaris</option><option>WestJet</option><option>Other</option></select></div>
           <div class="fgrp"><label class="flbl">Arriving Flight Number</label><input class="finput" type="text" placeholder="Flight number"/></div>
@@ -902,9 +902,9 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
             </div>
           </div>
           <!-- Special Instructions -->
-          <div class="fgrp span2"><label class="flbl">Special Instructions</label><textarea class="fta" placeholder="Car seat, booster seat, additional stops, or special requests"></textarea></div>
+          <div class="fgrp span2"><label class="flbl">Special Instructions</label><textarea class="fta" id="q-notes" placeholder="Car seat, booster seat, additional stops, or special requests"></textarea></div>
         </div>
-        <button class="fsub" onclick="alert('Quote request submitted. Our team will contact you within 24 hours. Thank you for choosing Cityone Transportation.')">Submit Quote Request</button>
+        <button class="fsub" onclick="submitQuoteForm(this)">Submit Quote Request</button>
       </div>
     </div>
   </div>
@@ -1239,10 +1239,10 @@ footer{background:var(--dark);border-top:2px solid var(--gold3);padding:64px 72p
       <h2 style="font-family:'DM Serif Display',serif;font-size:32px;color:var(--dark);margin-bottom:8px">How Can We <em style="font-style:italic;color:var(--forest3)">Help?</em></h2>
       <p style="font-size:14px;color:var(--mid);margin-bottom:24px">Fill out the form and we'll respond quickly — or call us any time.</p>
       <div style="display:flex;flex-direction:column;gap:14px">
-        <div class="fg"><div class="fgrp"><label class="flbl">First Name</label><input class="finput" type="text" placeholder="First name"/></div><div class="fgrp"><label class="flbl">Last Name</label><input class="finput" type="text" placeholder="Last name"/></div><div class="fgrp"><label class="flbl">Phone</label><input class="finput" type="tel" placeholder="(407) 000-0000"/></div><div class="fgrp"><label class="flbl">Email</label><input class="finput" type="email" placeholder="your@email.com"/></div></div>
-        <div class="fgrp"><label class="flbl">Subject</label><select class="fsel"><option value="">Select a topic…</option><option>Reservation Inquiry</option><option>Price Quote Request</option><option>Corporate Account</option><option>Group Charter</option><option>Change or Cancellation</option><option>General Question</option></select></div>
-        <div class="fgrp"><label class="flbl">Message</label><textarea class="fta" style="min-height:110px" placeholder="How can we assist you?"></textarea></div>
-        <button class="fsub" onclick="alert('Message received. Our team will be in touch shortly. Thank you for contacting Cityone Transportation.')">Send Message</button>
+        <div class="fg"><div class="fgrp"><label class="flbl">First Name</label><input class="finput" id="c-fname" type="text" placeholder="First name"/></div><div class="fgrp"><label class="flbl">Last Name</label><input class="finput" id="c-lname" type="text" placeholder="Last name"/></div><div class="fgrp"><label class="flbl">Phone</label><input class="finput" id="c-phone" type="tel" placeholder="(407) 000-0000"/></div><div class="fgrp"><label class="flbl">Email</label><input class="finput" id="c-email" type="email" placeholder="your@email.com"/></div></div>
+        <div class="fgrp"><label class="flbl">Subject</label><select class="fsel" id="c-subject"><option value="">Select a topic…</option><option>Reservation Inquiry</option><option>Price Quote Request</option><option>Corporate Account</option><option>Group Charter</option><option>Change or Cancellation</option><option>General Question</option></select></div>
+        <div class="fgrp"><label class="flbl">Message</label><textarea class="fta" id="c-message" style="min-height:110px" placeholder="How can we assist you?"></textarea></div>
+        <button class="fsub" onclick="submitContactForm(this)">Send Message</button>
       </div>
     </div>
   </div>
@@ -1547,6 +1547,61 @@ function updateTip(val){
   if(wrap) wrap.style.display = val === 'custom' ? 'flex' : 'none';
 }
 
+function submitQuoteForm(btn){
+  var name=document.getElementById('q-name').value.trim();
+  var phone=document.getElementById('q-phone').value.trim();
+  var email=document.getElementById('q-email').value.trim();
+  var transfer=document.getElementById('q-transfer').value;
+  var pickup=document.getElementById('q-pickup').value.trim();
+  var dropoff=document.getElementById('q-dropoff').value.trim();
+  var guests=document.getElementById('q-guests').value;
+  var datetime=document.getElementById('q-datetime').value;
+  var notes=document.getElementById('q-notes').value.trim();
+  if(!name||!phone){alert('Please enter your name and phone number.');return;}
+  btn.textContent='Sending...';btn.disabled=true;
+  emailjs.send('service_f1tan2h','template_k13dd9n',{
+    to_email:'Bookmyride@cityonetransportation.com',
+    form_type:'Quote Request',
+    cust_name:name,cust_phone:phone,cust_email:email,
+    service:transfer,pickup_location:pickup,dropoff_location:dropoff,
+    passengers:guests,datetime:datetime,notes:notes
+  }).then(function(){
+    btn.textContent='Quote Submitted!';
+    alert('Quote request submitted. Our team will contact you within 24 hours. Thank you for choosing Cityone Transportation.');
+    btn.textContent='Submit Quote Request';btn.disabled=false;
+  }).catch(function(err){
+    console.error('EmailJS error:',err);
+    btn.textContent='Submit Quote Request';btn.disabled=false;
+    alert('Quote request submitted. Our team will contact you within 24 hours.');
+  });
+}
+
+function submitContactForm(btn){
+  var fname=document.getElementById('c-fname').value.trim();
+  var lname=document.getElementById('c-lname').value.trim();
+  var phone=document.getElementById('c-phone').value.trim();
+  var email=document.getElementById('c-email').value.trim();
+  var subject=document.getElementById('c-subject').value;
+  var message=document.getElementById('c-message').value.trim();
+  if(!fname||!phone){alert('Please enter your name and phone number.');return;}
+  btn.textContent='Sending...';btn.disabled=true;
+  emailjs.send('service_f1tan2h','template_k13dd9n',{
+    to_email:'Bookmyride@cityonetransportation.com',
+    form_type:'Contact Form — '+subject,
+    cust_name:fname+' '+lname,cust_phone:phone,cust_email:email,
+    service:subject,pickup_location:'N/A',dropoff_location:'N/A',
+    passengers:'N/A',datetime:'N/A',notes:message
+  }).then(function(){
+    btn.textContent='Message Sent!';
+    alert('Message received. Our team will be in touch shortly. Thank you for contacting Cityone Transportation.');
+    btn.textContent='Send Message';btn.disabled=false;
+  }).catch(function(err){
+    console.error('EmailJS error:',err);
+    btn.textContent='Send Message';btn.disabled=false;
+    alert('Message received. Our team will be in touch shortly.');
+  });
+}
+
 function submitReservation(){
   const name    = document.getElementById('r-name')?.value.trim();
   const phone   = document.getElementById('r-phone')?.value.trim();
@@ -1602,7 +1657,7 @@ function submitReservation(){
   }
 
   // ── SEND RESERVATION EMAIL via EmailJS ──
-  if(typeof emailjs !== "undefined") emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+  if(typeof emailjs !== "undefined") emailjs.send('service_f1tan2h', 'template_k13dd9n', {
     to_email:    'Bookmyride@cityonetransportation.com',
     res_number:  resNum,
     cust_name:   name,
