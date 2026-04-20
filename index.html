@@ -1693,7 +1693,7 @@ function submitReservation(){
     time:        dtStr ? dtStr.split(' ').slice(1).join(' ') : '',
     passengers:  pax,
     reservation_number: resNum,
-    message:     'Service: ' + service + '. Pickup: ' + pickup + '. Flight: ' + (flight||'N/A') + ' (' + (tip||'N/A') + '). Round Trip: ' + roundTrip + (roundTrip==='Yes' ? '. Return: ' + retDateTimeStr + ' from ' + retPickup + ' to ' + retDropoff + ' (' + retAirline + ')' : '') + '. Notes: ' + (notes||'None'),
+    message:     'Service: ' + service + '. Pickup: ' + dest + '. Dropoff: ' + dropoffLoc + '. Flight: ' + (flight||'N/A') + ' (' + (tip||'N/A') + '). Round Trip: ' + roundTrip + (roundTrip==='Yes' ? '. Return: ' + retDateTimeStr + ' from ' + retPickup + ' to ' + retDropoff + ' (' + retAirline + ')' : '') + '. Notes: ' + (notes||'None'),
   }).then(()=>{
     console.log('EmailJS reservation sent successfully');
   }).catch((err)=>{
