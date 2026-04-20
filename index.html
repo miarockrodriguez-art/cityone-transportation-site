@@ -1560,11 +1560,15 @@ function submitQuoteForm(btn){
   if(!name||!phone){alert('Please enter your name and phone number.');return;}
   btn.textContent='Sending...';btn.disabled=true;
   emailjs.send('service_f1tan2h','template_k13dd9n',{
-    to_email:'Bookmyride@cityonetransportation.com',
-    form_type:'Quote Request',
-    cust_name:name,cust_phone:phone,cust_email:email,
-    service:transfer,pickup_location:pickup,dropoff_location:dropoff,
-    passengers:guests,datetime:datetime,notes:notes
+    from_name:name,
+    from_email:email,
+    phone:phone,
+    pickup_location:pickup,
+    destination:dropoff,
+    date:datetime?datetime.split('T')[0]:'',
+    time:datetime?datetime.split('T')[1]:'',
+    passengers:guests,
+    message:'Quote Request — Transfer: '+transfer+'. Notes: '+(notes||'None')
   }).then(function(){
     btn.textContent='Quote Submitted!';
     alert('Quote request submitted. Our team will contact you within 24 hours. Thank you for choosing Cityone Transportation.');
@@ -1586,11 +1590,15 @@ function submitContactForm(btn){
   if(!fname||!phone){alert('Please enter your name and phone number.');return;}
   btn.textContent='Sending...';btn.disabled=true;
   emailjs.send('service_f1tan2h','template_k13dd9n',{
-    to_email:'Bookmyride@cityonetransportation.com',
-    form_type:'Contact Form — '+subject,
-    cust_name:fname+' '+lname,cust_phone:phone,cust_email:email,
-    service:subject,pickup_location:'N/A',dropoff_location:'N/A',
-    passengers:'N/A',datetime:'N/A',notes:message
+    from_name:fname+' '+lname,
+    from_email:email,
+    phone:phone,
+    pickup_location:'N/A',
+    destination:'N/A',
+    date:'N/A',
+    time:'N/A',
+    passengers:'N/A',
+    message:'Contact Form — '+subject+': '+(message||'No message')
   }).then(function(){
     btn.textContent='Message Sent!';
     alert('Message received. Our team will be in touch shortly. Thank you for contacting Cityone Transportation.');
@@ -1658,25 +1666,15 @@ function submitReservation(){
 
   // ── SEND RESERVATION EMAIL via EmailJS ──
   if(typeof emailjs !== "undefined") emailjs.send('service_f1tan2h', 'template_k13dd9n', {
-    to_email:    'Bookmyride@cityonetransportation.com',
-    res_number:  resNum,
-    cust_name:   name,
-    cust_phone:  phone,
-    cust_email:  email,
-    passengers:  pax,
-    service:     service,
-    pickup:      pickup,
+    from_name:   name,
+    from_email:  email,
+    phone:       phone,
     pickup_location: dest,
-    dropoff_location: dropoffLoc,
-    datetime:    dtStr,
-    round_trip:  roundTrip,
-    flight:      flight,
-    airline:     tip,
-    ret_airline: retAirline,
-    ret_datetime: retDateTimeStr,
-    ret_pickup:  retPickup,
-    ret_dropoff: retDropoff,
-    notes:       notes,
+    destination: dropoffLoc,
+    date:        dtStr ? dtStr.split(' ')[0] : '',
+    time:        dtStr ? dtStr.split(' ').slice(1).join(' ') : '',
+    passengers:  pax,
+    message:     'Reservation #' + resNum + ' — Service: ' + service + '. Pickup: ' + pickup + '. Flight: ' + (flight||'N/A') + ' (' + (tip||'N/A') + '). Round Trip: ' + roundTrip + (roundTrip==='Yes' ? '. Return: ' + retDateTimeStr + ' from ' + retPickup + ' to ' + retDropoff + ' (' + retAirline + ')' : '') + '. Notes: ' + (notes||'None'),
   }).then(()=>{
     console.log('Reservation email sent.');
   }).catch((err)=>{
