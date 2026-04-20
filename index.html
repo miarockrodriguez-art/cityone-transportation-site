@@ -1580,10 +1580,10 @@ function submitQuoteForm(btn){
     reservation_number:'QUOTE',
     message:'Quote Request — Transfer: '+transfer+'. Notes: '+(notes||'None')
   };
-  console.log('EmailJS QUOTE — Service: service_f1tan2h, Template: template_k13dd9n');
+  console.log('EmailJS QUOTE — Service: service_hexohos, Template: template_k13dd9n');
   console.log('EmailJS QUOTE — Params:', JSON.stringify(quoteParams,null,2));
   btn.textContent='Sending...';btn.disabled=true;
-  emailjs.send('service_f1tan2h','template_k13dd9n',{
+  emailjs.send('service_hexohos','template_k13dd9n',{
     from_name:name,
     from_email:email,
     phone:phone,
@@ -1627,10 +1627,10 @@ function submitContactForm(btn){
     reservation_number:'N/A',
     message:'Contact Form — '+subject+': '+(message||'No message')
   };
-  console.log('EmailJS CONTACT — Service: service_f1tan2h, Template: template_k13dd9n');
+  console.log('EmailJS CONTACT — Service: service_hexohos, Template: template_k13dd9n');
   console.log('EmailJS CONTACT — Params:', JSON.stringify(contactParams,null,2));
   btn.textContent='Sending...';btn.disabled=true;
-  emailjs.send('service_f1tan2h','template_k13dd9n',{
+  emailjs.send('service_hexohos','template_k13dd9n',{
     from_name:fname+' '+lname,
     from_email:email,
     phone:phone,
@@ -1715,9 +1715,9 @@ function submitReservation(){
     passengers:pax, reservation_number:resNum,
     message:'Service: '+service+'. Pickup: '+dest+'. Dropoff: '+dropoffLoc+'. Flight: '+(flight||'N/A')+' ('+(tip||'N/A')+')'+'. Round Trip: '+roundTrip+'. Notes: '+(notes||'None')
   };
-  console.log('EmailJS RESERVATION — Service: service_f1tan2h, Template: template_k13dd9n');
+  console.log('EmailJS RESERVATION — Service: service_hexohos, Template: template_k13dd9n');
   console.log('EmailJS RESERVATION — Params:', JSON.stringify(resParams,null,2));
-  if(typeof emailjs !== "undefined") emailjs.send('service_f1tan2h', 'template_k13dd9n', {
+  if(typeof emailjs !== "undefined") emailjs.send('service_hexohos', 'template_k13dd9n', {
     from_name:   name,
     from_email:  email,
     phone:       phone,
