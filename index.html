@@ -1568,7 +1568,20 @@ function submitQuoteForm(btn){
   var notes=document.getElementById('q-notes').value.trim();
   if(!name||!phone){alert('Please enter your name and phone number.');return;}
   if(typeof emailjs==='undefined'){alert('Email service loading — please try again in a moment.');return;}
-  console.log('EmailJS quote form submitting...',{from_name:name,from_email:email,phone:phone});
+  var quoteParams={
+    from_name:name,
+    from_email:email,
+    phone:phone,
+    pickup_location:pickup,
+    destination:dropoff,
+    date:datetime?datetime.split('T')[0]:'',
+    time:datetime?datetime.split('T')[1]:'',
+    passengers:guests,
+    reservation_number:'QUOTE',
+    message:'Quote Request — Transfer: '+transfer+'. Notes: '+(notes||'None')
+  };
+  console.log('EmailJS QUOTE — Service: service_f1tan2h, Template: template_k13dd9n');
+  console.log('EmailJS QUOTE — Params:', JSON.stringify(quoteParams,null,2));
   btn.textContent='Sending...';btn.disabled=true;
   emailjs.send('service_f1tan2h','template_k13dd9n',{
     from_name:name,
@@ -1587,7 +1600,7 @@ function submitQuoteForm(btn){
     alert('Quote request submitted. Our team will contact you within 24 hours. Thank you for choosing Cityone Transportation.');
     btn.textContent='Submit Quote Request';btn.disabled=false;
   }).catch(function(err){
-    console.error('EmailJS quote error:',err);
+    console.error('EmailJS quote error — Status:',err.status,'Text:',err.text,'Full:',JSON.stringify(err));
     btn.textContent='Submit Quote Request';btn.disabled=false;
     alert('There was an issue sending your quote. Please call (407) 509-0880.');
   });
@@ -1602,7 +1615,20 @@ function submitContactForm(btn){
   var message=document.getElementById('c-message').value.trim();
   if(!fname||!phone){alert('Please enter your name and phone number.');return;}
   if(typeof emailjs==='undefined'){alert('Email service loading — please try again in a moment.');return;}
-  console.log('EmailJS contact form submitting...',{from_name:fname+' '+lname,from_email:email,phone:phone});
+  var contactParams={
+    from_name:fname+' '+lname,
+    from_email:email,
+    phone:phone,
+    pickup_location:'N/A',
+    destination:'N/A',
+    date:'N/A',
+    time:'N/A',
+    passengers:'N/A',
+    reservation_number:'N/A',
+    message:'Contact Form — '+subject+': '+(message||'No message')
+  };
+  console.log('EmailJS CONTACT — Service: service_f1tan2h, Template: template_k13dd9n');
+  console.log('EmailJS CONTACT — Params:', JSON.stringify(contactParams,null,2));
   btn.textContent='Sending...';btn.disabled=true;
   emailjs.send('service_f1tan2h','template_k13dd9n',{
     from_name:fname+' '+lname,
@@ -1621,7 +1647,7 @@ function submitContactForm(btn){
     alert('Message received. Our team will be in touch shortly. Thank you for contacting Cityone Transportation.');
     btn.textContent='Send Message';btn.disabled=false;
   }).catch(function(err){
-    console.error('EmailJS contact error:',err);
+    console.error('EmailJS contact error — Status:',err.status,'Text:',err.text,'Full:',JSON.stringify(err));
     btn.textContent='Send Message';btn.disabled=false;
     alert('There was an issue sending your message. Please call (407) 509-0880.');
   });
@@ -1682,7 +1708,15 @@ function submitReservation(){
   }
 
   // ── SEND RESERVATION EMAIL via EmailJS ──
-  console.log('EmailJS reservation submitting...', {from_name:name, from_email:email, phone:phone, reservation_number:resNum});
+  var resParams={
+    from_name:name, from_email:email, phone:phone,
+    pickup_location:dest, destination:dropoffLoc,
+    date:dtStr?dtStr.split(' ')[0]:'', time:dtStr?dtStr.split(' ').slice(1).join(' '):'',
+    passengers:pax, reservation_number:resNum,
+    message:'Service: '+service+'. Pickup: '+dest+'. Dropoff: '+dropoffLoc+'. Flight: '+(flight||'N/A')+' ('+(tip||'N/A')+')'+'. Round Trip: '+roundTrip+'. Notes: '+(notes||'None')
+  };
+  console.log('EmailJS RESERVATION — Service: service_f1tan2h, Template: template_k13dd9n');
+  console.log('EmailJS RESERVATION — Params:', JSON.stringify(resParams,null,2));
   if(typeof emailjs !== "undefined") emailjs.send('service_f1tan2h', 'template_k13dd9n', {
     from_name:   name,
     from_email:  email,
@@ -1697,7 +1731,7 @@ function submitReservation(){
   }).then(()=>{
     console.log('EmailJS reservation sent successfully');
   }).catch((err)=>{
-    console.warn('Email send failed:', err);
+    console.error('EmailJS reservation error — Status:',err.status,'Text:',err.text,'Full:',JSON.stringify(err));
   });
 
   // Update Square link with reservation number
